@@ -1,0 +1,47 @@
+<div class="container">
+<mat-toolbar color="primary">
+  
+
+ 
+  <span class="example-fill-remaining-space"></span>
+
+  <span>Special offers</span>
+
+  <span class="example-fill-remaining-space"></span>
+
+  <button mat-button>Location</button>
+
+  <span class="example-fill-remaining-space"></span>
+
+  <button mat-button>Cart</button>
+</mat-toolbar>
+</div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Logo</mat-toolbar>
+    <mat-card class="example-card">
+     <mat-card-content> 
+    <mat-nav-list *ngFor="let item of menus">
+     <a mat-list-item class ="link-class" routerLinkActive="active" [routerLink]="[item.name]"  [queryParams]="{allowEdit:'1',selectedValue:item.name}" >
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{item.name}}</mat-card-title>
+      </a>
+     
+    </mat-nav-list>
+  </mat-card-content>
+  </mat-card>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

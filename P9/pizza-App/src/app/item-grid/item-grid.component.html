@@ -1,0 +1,31 @@
+<div fxLayout='row wrap' fxLayoutWrap class="cards">
+
+
+  <div fxFlex="20"  class="example-card " fxFlex="calc(50%-25px)" *ngFor="let pizza of pizzas" (click)="navigate(pizza.name)">
+    
+    <mat-card fxFlex fxFlexAlign="start" >
+       
+      <mat-card-header>
+        <mat-card-title>{{pizza.name}}</mat-card-title>
+        <mat-card-subtitle>{{pizza.price}}
+        </mat-card-subtitle>
+      </mat-card-header>
+          
+      <mat-card-content>
+       <!-- <a mat-list-item routerLinkActive="active" [routerLink]="['/Pizza',pizza.name]"  [queryParams]="{allowEdit:'1',selectedValue:pizza.name}">
+          
+        </a>-->
+        <div mat-card-avatar class="example-header-image"></div>
+        
+       <p>hello</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  
+  </div>
+</div>
